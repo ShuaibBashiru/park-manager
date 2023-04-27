@@ -15,7 +15,7 @@ router.get('/user/:id', (req, res) => {
           serverError: err,
         });
       } else {
-        if (rows.recordsets[0].length === 0) {
+        if (rows.recordsets.length === 0) {
           res.json({
             record: [],
             status: false,
@@ -24,7 +24,7 @@ router.get('/user/:id', (req, res) => {
           });
         } else {
           res.json({
-            record: recordsets[0][0],
+            record: rows.recordsets[0][0],
             status: true,
             msg: 'Success',
             serverError: '',
